@@ -1,3 +1,7 @@
+Number.prototype.mapnr = function (in_min, in_max, out_min, out_max) {
+	return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}
+
 class ColorLite extends HTMLElement {
   set hass(hass) {
     if (!this.content) {
@@ -32,10 +36,13 @@ if(state){
 				}
 			}
 		}		
-		var bbritef = bright;	
-		if (min_bright > bright) {
-			bbritef = min_bright;
-		}
+		// recalc brightness if min_brightness set
+		//var bbritef = bright;
+		var bbritef = bright.mapnr(0,255, min_bright, 255);
+
+		// if (min_bright > bright) {
+		// 	bbritef = min_bright;
+		// }
 		var bbrite = (bbritef / 205);
 	
 		this.content.innerHTML = `	
