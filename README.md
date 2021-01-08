@@ -31,6 +31,8 @@ Entity id
 
 Path to light image
 
+&nbsp;
+
 
 #### min_brightness
 (integer)(Optional)
