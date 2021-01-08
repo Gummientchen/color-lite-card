@@ -18,8 +18,6 @@ class ColorLite extends HTMLElement {
 	
 //  if the light is on	
 if(state){
-	console.log(state);
-
 	if(state.state == 'on'){
 	
 		const imageURLId = this.config.image;			
