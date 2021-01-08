@@ -59,6 +59,7 @@ Path to color image for those bulbs which support color.  Hue rotation is based 
               action: none    
             image:
               /local/floorplan/lamp.png                         
+            min_brightness: 25
             style:
               top: 50%
               left: 50%
@@ -78,6 +79,7 @@ Path to color image for those bulbs which support color.  Hue rotation is based 
               /local/floorplan/CLamp.png   
             color_image:
               /local/floorplan/CLamp-Color.png                         
+            min_brightness: 25
             style:
               top: 50%
               left: 50%
