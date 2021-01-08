@@ -18,6 +18,8 @@ class ColorLite extends HTMLElement {
 	
 //  if the light is on	
 if(state){
+	console.log(state);
+
 	if(state.state == 'on'){
 	
 		const imageURLId = this.config.image;			
@@ -28,6 +30,19 @@ if(state){
 		var hsar = "";
 		var min_bright = (this.config.min_brightness * 2.5);
 		var bright = state.attributes.brightness;
+		var color_temp = state.attributes.color_temp; // for color temp lamps
+
+		if(color_temp){
+			var min_mireds = state.attributes.min_mireds;
+			var max_mireds = state.attributes.max_mireds;
+			
+			var hue_rotate = color_temp.mapnr(min_mireds, max_mireds, 15, -10);
+			var sepia = color_temp.mapnr(min_mireds, max_mireds, 30, 0);
+			var saturation = color_temp.mapnr(min_mireds, max_mireds, 1, 1.5);
+
+			var hsar = ' sepia(' + sepia + '%) hue-rotate(' + hue_rotate + 'deg) saturate(' + saturation + ')';
+		}
+
 		if (hsval) {
 			if (rgbval != "255,255,255") {				
 				var hsar = ' hue-rotate(' + hsval[0] + 'deg)';			
